@@ -1,6 +1,6 @@
-==================================================================================
+==========================================
 Mock Test - BDD Cucumber Nightwatch Test Automation Framework
-==================================================================================
+==========================================
 This project is a mock test using nightwatch with Cucumber test automation framework.  
 
 This is a reusable automation framework that blends together Nightwatch, Selenium WebDriver, Cucumber JVM (incorporating Gherkin and the BDD 'Given, When Then' testing construct)   

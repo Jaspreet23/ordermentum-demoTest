@@ -16,7 +16,7 @@ Open Terminal or command line
 cd to the desired folder where the test automation source code needs to be checkout
 
 Run command
-git clone https://github.com/Jaspreet23/ordermentum.git
+git clone https://github.com/Jaspreet23/ordermentum-demoTest.git
 
 This will download the latest template source code
 

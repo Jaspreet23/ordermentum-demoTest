@@ -1,0 +1,180 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Blog",
+    "line": 2,
+    "id": "blog",
+    "tags": [
+      {
+        "name": "@smokeTest",
+        "line": 1
+      }
+    ],
+    "uri": "features/blog.feature",
+    "elements": [
+      {
+        "id": "blog;create-a-blog-article-and-save-as-draft",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Create a blog article and save as draft",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 1
+          },
+          {
+            "name": "@blog",
+            "line": 3
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User is on Login Page",
+            "match": {
+              "location": "step_definitions/login.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10531000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "User enters \"demo@fork-cms.com\" and \"demo\"",
+            "match": {
+              "location": "step_definitions/login.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4243000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I click on Blog from left menu",
+            "match": {
+              "location": "step_definitions/blog.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3693000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click on Add Article link",
+            "match": {
+              "location": "step_definitions/blog.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5758000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I enter the blog article data and Save as draft",
+            "match": {
+              "location": "step_definitions/blog.js:14"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 14000000,
+              "error_message": "TypeError: Cannot read property 'pause' of undefined\n    at Proxy.addArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:55:13)\n    at Proxy.saveDraftArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:59:13)\n    at World.<anonymous> (/Users/jazz/Documents/GitHub/ordermentum/step_definitions/blog.js:16:26)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "blog;create-a-blog-article-and-publish",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Create a blog article and publish",
+        "tags": [
+          {
+            "name": "@smokeTest",
+            "line": 1
+          },
+          {
+            "name": "@blog",
+            "line": 10
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "User is on Login Page",
+            "match": {
+              "location": "step_definitions/login.js:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 12419000000,
+              "error_message": "Timed out while waiting for element <@selectCategory> to be present for 10000 milliseconds. - Expected \"visible\" but got: \"not found\"; ERROR; ERROR\n\n    at Proxy.addArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:53:10)\n    at Proxy.saveDraftArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:59:13)\n    at World.<anonymous> (/Users/jazz/Documents/GitHub/ordermentum/step_definitions/blog.js:16:26)\n\nERROR: Unable to locate element: \"@blogContentDesc\" using: css selector\n    at Proxy.addArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:51:10)\n    at Proxy.saveDraftArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:59:13)\n    at World.<anonymous> (/Users/jazz/Documents/GitHub/ordermentum/step_definitions/blog.js:16:26)\n\nERROR: Unable to locate element: \"@blogSummary\" using: css selector\n    at Proxy.addArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:52:10)\n    at Proxy.saveDraftArticle (/Users/jazz/Documents/GitHub/ordermentum/page_objects/myAccountPage.js:59:13)\n    at World.<anonymous> (/Users/jazz/Documents/GitHub/ordermentum/step_definitions/blog.js:16:26)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "User enters \"demo@fork-cms.com\" and \"demo\"",
+            "match": {
+              "location": "step_definitions/login.js:10"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I click on Blog from left menu",
+            "match": {
+              "location": "step_definitions/blog.js:4"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I click on Add Article link",
+            "match": {
+              "location": "step_definitions/blog.js:9"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I enter the blog article data and publish",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

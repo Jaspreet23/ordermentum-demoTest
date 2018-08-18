@@ -1,9 +1,10 @@
+//Get config files
 const config = require('config')
 const backEndURL = config.get('backEndURL')
 
 module.exports = {
   url: backEndURL,
-  elements:{
+  elements:{//All the page elements on My account section
       body:'body',
       dashboardMenu:'a[data-original-title="Dashboard"]',
       modulesMenu:'a[data-original-title="Modules"]',
@@ -21,9 +22,14 @@ module.exports = {
       inputTags:'#tags',
       tagsInfo:'#tags-info',
       btnSaveDraft:'button[name="saveAsDraft"]',
-      btnPublish:'button[name="publish"]'
+      btnPublish:'button[name="publish"]',
+      bodyContent:'body[class*="cke_editable"]'
   },
   commands: [{
+    /**
+     * This function will select the 'Module'from left menu and 
+     * then Go to Blogs page 
+     */
     selectBlog: function (client) {
       console.log('--Select Blog-- ');
       const slowTimer = client.globals.waitForElementTimeout;
@@ -34,6 +40,10 @@ module.exports = {
         .waitForElementVisible('@addArticle', slowTimer)
 
     },
+    /**
+     * This function will the 'Ádd Article'button on the
+     * Blog page
+     */
     clickArticle: function(client){
       console.log('--Click article link-- ');
       const slowTimer = client.globals.waitForElementTimeout;
@@ -41,28 +51,45 @@ module.exports = {
         .click('@addArticle')
         .waitForElementVisible('@form', slowTimer)
     },
-    addArticle: function(client){
+    /**
+     * This function will enter all the blog article data 
+     * and click the button based on the selector passed
+     */
+    addArticle: function(client, selector){
       console.log('--Enter blog article data-- ');
       const slowTimer = client.globals.waitForElementTimeout;
-      return this
+       this
         .waitForElementVisible('@blogTitle', slowTimer)
         .setValue('@blogTitle', "jasTitle")
-        .setValue('@blogContentDesc', "jas blog content desc")
-        .setValue('@blogSummary', "jas blog summary")
         .waitForElementVisible('@selectCategory', slowTimer)
         .waitForElementVisible('@inputAuthor', slowTimer)
-        .api.pause(20000)
-        
+        .waitForElementVisible('@btnPublish', slowTimer)
+        .api.pause(2000)
+
+        return client
+           .frame(0, () => {
+             client
+              .pause(5000) 
+              .setValue('body', 'JAS dummy content')
+              .frame(null)
+              .click(selector)
+              .pause(10000) 
+        })
     },
+     /**
+     * This function will call 'addArticle'method
+     * and pass the 'Save Draft' button selector
+     */
     saveDraftArticle: function(client){
-       this.addArticle(client);
-       return this
-         // .click('@btnSaveDraft')
+       return this.addArticle(client, 'button[name="saveAsDraft"]');
     },
+     /**
+     * This function will call 'addArticle'method
+     * and pass the 'Publish' button selector
+     */
     publishArticle:function(client){
-       this.addArticle(client);
        return this
-          //.click('@btnPublish')
+           .addArticle(client, 'button[name="publish"]')
     }
    
   }]

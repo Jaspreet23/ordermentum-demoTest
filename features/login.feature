@@ -1,6 +1,6 @@
-@smokeTest
+
 Feature: Login
-    @login
+    @login @smokeTest
 	Scenario Outline: Successful Login with Valid Credentials
 		Given User is on Login Page
 		When User enters "<username>" and "<password>"

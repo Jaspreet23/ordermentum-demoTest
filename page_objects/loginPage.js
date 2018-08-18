@@ -13,10 +13,13 @@ module.exports = {
       btnSubmit:'button[name="login"]',
 },
   commands: [{
+    /**
+     * This function will log the user if
+     * the username and password are correct. 
+     */
     login: function (client, username, password) {
       console.log('--login-- ');
       const slowTimer = client.globals.waitForElementTimeout;
-      console.log('slowTimer= '+ slowTimer);
       return this
           .waitForElementVisible('@siteLogo', slowTimer)
           .waitForElementVisible('@siteTitle', slowTimer)
@@ -26,15 +29,23 @@ module.exports = {
           .click('@btnSubmit')
           .api.pause(2000)
     }, 
+    /**
+     * This function will validate if login was  
+     * successful by checking the Dashboard menu item
+     */
     validateLogin: function (client) {
       console.log('--validateLogin-- ');
-      const myAccount = client.page.myAccount();
+      const myAccount = client.page.myAccountPage();
       return myAccount.waitForElementVisible('@dashboardMenu',1000);       
     },
+    /**
+     * This function will logout the user
+     * from the website
+     */
     logout: function (client) {
       console.log('--validateLogout-- ');
       const slowTimer = client.globals.waitForElementTimeout;
-      const myAccount = client.page.myAccount();
+      const myAccount = client.page.myAccountPage();
       return myAccount
           .waitForElementVisible('@dropdownToggle',slowTimer)
           .click('@dropdownToggle')

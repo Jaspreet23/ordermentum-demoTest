@@ -1,6 +1,6 @@
-==================================================================================
+==========================================
 Mock Test - BDD Cucumber Nightwatch Test Automation Framework
-==================================================================================
+==========================================
 This project is a mock test using nightwatch with Cucumber test automation framework.  
 
 This is a reusable automation framework that blends together Nightwatch, Selenium WebDriver, Cucumber JVM (incorporating Gherkin and the BDD 'Given, When Then' testing construct)   
@@ -16,7 +16,7 @@ Open Terminal or command line
 cd to the desired folder where the test automation source code needs to be checkout
 
 Run command
-git clone https://github.com/Jaspreet23/ordermentum.git
+git clone https://github.com/Jaspreet23/ordermentum-demoTest.git
 
 This will download the latest template source code
 
